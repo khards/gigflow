@@ -1,0 +1,85 @@
+<div style="height: 100%;">
+    <h1>Quotation</h1>
+    <div style="text-align: right; width: 550px;">
+        <p>{{ business.name }}</p>
+        <p>{{ business_address.address }}<br>{{ business_address.city }}<br>{{ business_address.postalcode}}<br>{{ business.phone}}<br>{{ business.email }}</p>
+    </div>
+    <div style="text-align: left; width: 550px;">
+        <p>{{ billpayer.firstname }} {{ billpayer.lastname }}<br>{{ order.address.address }}, {{ order.address.city }}, {{ order.address.postalcode }}<br>{{ billpayer.phone }}<br>{{ billpayer.email }}</p>
+        <p>{{ datetime }}</p>
+    </div>
+    <div>
+        <p><br>Dear {{ billpayer.firstname }},</p>
+        <p>Good news!</p>
+        <div>I am currently available and would be delighted to DJ for you at {{ order.location }} on {{ order.formattedStart }}.<br>Please see below for the quotation details. The quotation is fully inclusive and includes travelling, set up prior to the start, and any options you selected during the booking process.</div>
+        <div><br>If you would like to book a Deposit of &pound;{{ order.deposit }} is required to secure the booking.</div>
+        <div><br>This or the full amount can be paid by bank transfer or online<br>
+            <p>Total Price for Services &pound;{{ order.totalPrice }}. Any outstanding amounts can be either paid by Bank Transfer or online prior to the start.</p>
+            <p>&nbsp;</p>
+        </div>
+        <div><a style="border: 3px dashed; font-size: 13px; line-height: 2.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold; color: black; margin: 12px;" href="{{ payment_link }}">&nbsp; &nbsp; Pay deposit and secure booking &gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp; </a></div>
+        <div>
+            <p>&nbsp;</p>
+        </div>
+        <div>
+            <table style="margin-left: 40px !important;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td>Order reference:</td>
+                    <td>{{ order.id }}</td>
+                </tr>
+                <tr>
+                    <td>Start:</td>
+                    <td>{{ order.formattedStart }}</td>
+                </tr>
+                <tr>
+                    <td>End:</td>
+                    <td>{{ order.formattedEnd }}</td>
+                </tr>
+                <tr>
+                    <td>Total price:</td>
+                    <td>&pound;{{ order.totalPrice }}</td>
+                </tr>
+                <tr>
+                    <td>Deposit:</td>
+                    <td>&pound;{{ order.deposit }}</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>{{ order.location }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <p>Any outstanding balances must be paid prior to the start of the event.</p>
+            <p>If further information is required, or you have any special requests please feel free to contact me.</p>
+            <div>
+                <ul>
+                    <li>Bank payment details:
+                        <ul>
+                            <li>Bank: {{ business.paymentMethodBank.data.name }}</li>
+                            <li>Payee: {{ business.paymentMethodBank.data.payee }}</li>
+                            <li>Account: {{ business.paymentMethodBank.data.account }}</li>
+                            <li>Sort code: {{ business.paymentMethodBank.data.sortcode }}</li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ payment_link }}">Online payments can be made using this link</a>.</li>
+                </ul>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+        <div>
+            <h2>Next steps</h2>
+            <ul>
+                <li>For advance bookings, I will be in contact in the weeks prior to the start of your event. In the meantime, please feel free to email me at <a href="mailto:contact@keithhards.co.uk">contact@keithhards.co.uk</a> for non-urgent matters.</li>
+                <li>Please feel free to call me, weekday evenings are the best time.</li>
+                <li>For short notice bookings, I will be in contact with you shortly.</li>
+            </ul>
+            <p><br>Best Regards, Keith Hards<br><a href="{{ business.url }}">{{ business.url }}</a></p>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <p>{{ business.name }}</p>
+        <p>{{ business_address.address }}, {{ business_address.city }}, {{ business_address.postalcode}}<br>{{ business.phone}}&nbsp; -&nbsp; {{ business.email }}</p>
+    </div>
+</div>

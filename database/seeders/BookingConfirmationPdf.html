@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+
+    <style type="text/css">
+        @page {
+            margin: 0px;
+        }
+
+        * {
+            font-family: Verdana, Arial, sans-serif;
+        }
+        .gray {
+            background-color: lightgray
+        }
+        .body {
+            padding:0px;
+            margin:0px;
+            background-color: white;
+        }
+        .html {
+            padding:0px;
+            margin: 0px;
+            background-color: white;
+        }
+        .h1, .h2 {
+            padding:0px;
+            margin: 0px;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+
+<body>
+<div style="height:100%">
+    <h1>Booking confirmation</h1>
+
+    <div style="text-align: right; width: 550px;">
+        <p>{{ business.name }}</p>
+        <p>{{ business_address.address }}<br>{{ business_address.city }}<br>{{ business_address.postalcode}}<br>{{ business.phone}}<br>{{ business.email }}</p>
+    </div>
+
+    <div style="text-align: left; width: 550px;">
+        <p>{{ billpayer.firstname }} {{ billpayer.lastname }}<br>{{ order.address.address }}, {{ order.address.city }}, {{ order.address.postalcode }}<br>{{ billpayer.phone }}<br>{{ billpayer.email }}</p>
+        <p>{{ datetime }}</p>
+    </div>
+
+    <div>
+        <p><br>Dear {{ billpayer.firstname }},</p>
+        <p>Your booking is confirmed for {{ order.formattedStart }} at {{ order.location }}&nbsp;</p>
+        <p>I will arrive at least 1 hour prior to the start time to set up the equipment (unless otherwise arranged).</p>
+        <p>Total Price for Services &pound;{{ order.totalPrice }}, a total of &pound;{{ order.deposit }} has been paid.</p>
+        <p>Any outstanding amounts can be either paid by Bank Transfer or by PayPal.</p>
+        <p>Online payments via Bank transfer or PayPal can be accepted up to one week prior to the day.</p>
+    </div>
+
+
+    <div>
+        <ul>
+            <li>Bank details:
+                <ul>
+                    <li>Bank: {{ business.paymentMethodBank.data.name }}</li>
+                    <li>Payee: {{ business.paymentMethodBank.data.payee }}</li>
+                    <li>Account: {{ business.paymentMethodBank.data.account }}</li>
+                    <li>Sort code: {{ business.paymentMethodBank.data.sortcode }}</li>
+                </ul>
+            </li>
+            <li><a href="{{ payment_link }}">Online payments can be made using this link</a>.</li>
+        </ul>
+    </div>
+
+
+    <div>
+        <p>Any outstanding balances must be paid prior to the start of the event.</p>
+        <p>If further information is required, or you have any special requests please feel free to contact me.</p>
+    </div>
+
+    <div>
+        <h2>Next steps</h2>
+        <ul>
+            <li>For advance bookings, I will be in contact in the weeks prior to the start of your event. In the meantime, please feel free to email me at <a href="mailto:contact@keithhards.co.uk">contact@keithhards.co.uk</a> for non-urgent matters.</li>
+            <li>Please feel free to call me, weekday evenings are the best time.</li>
+            <li>For short notice bookings, I will be in contact with you shortly.</li>
+        </ul>
+        <p>
+            <br>Best Regards, Keith Hards<br>
+            <a href="{{ business.url }}">{{ business.url }}</a>
+        </p>
+    </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<div style="height:100%">
+    <div>
+        <h2>Keith Hards Terms and conditions</h2>
+    </div>
+    <div>
+        <p>1. All bookings are not considered final until your deposit has been received. Payment of deposit is acceptance of these terms and conditions. All deposits are refundable up to 7 days prior to the day of booking.</p>
+        <p>2. Enquiry form, email, or phone calls are a verbal or electronic agreement and shall include any other terms and conditions agreed upon between both parties. Any alterations must be agreed upon by both parties.</p>
+        <p>3. N/A.</p>
+    </div>
+    <div>
+        <p>4. All outstanding fees are payable prior to the start of the function (unless previously arranged). Cheques are not accepted. You may pay prior to the start date online or via bank transfer. It is not desirable to be handling large quantities of cash late in the evening.</p>
+        <p>5. The entertainment will commence once full payment has been received.</p>
+        <p>6. In the unlikely of Keith Hards having to cancel due to sickness or unforeseen circumstances, any fees paid to us by the client shall be refunded in full. (This will be the full extent of our liability) or in such circumstances, an alternative reputable entertainment company will be provided, although, for your peace of mind, this has never happened.</p>
+    </div>
+    <div>
+        <p>7. In the unlikely event that the equipment should totally fail (excluding circumstances beyond control i.e. a power cut) a full refund will be given. Backup equipment is always carried to each event.</p>
+        <p>8. Should Keith Hards be temporarily rejected upon arrival at the venue due to circumstances beyond our control, the full remaining fee must still be paid, regardless of the start time.</p>
+        <p>9. Should there be a power failure occur during the performance, Keith Hards is not obliged to provide any refunds.</p>
+    </div>
+    <div>
+        <p>10. Should additional entertainment time be required, overtime is charged at an hourly rate. This must be paid either in full, prior to the commencement of overtime, or on an hourly basis. If payment for overtime is not received, Keith Hards is not obliged to provide any further sound and lighting performance (unless previously arranged).</p>
+        <p>11. Access to the function is normally required at least 1 hour prior to the start time to set up the sound and lighting, also 45 Minutes is required to pack up and vacate the venue.</p>
+        <p>12. Keith Hards reserves the right to cancel services should it be discovered that the venue is unsuitable or dangerous. In these circumstances, no refund will be made. It is the client's responsibility to ensure the venue is equipped with at least 2 working standard sockets (unless otherwise arranged).</p>
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<div style="height:100%">
+    <div>
+        <p>13. If at any time, before or during the event, it is deemed that Keith Hards or property to be under threat, I reserve the right to terminate my services without further notice. In these circumstances, no refund will be made.</p>
+        <p>14. Keith Hards may use photographic or recording equipment at your function for promotional purposes, to be used solely within his website and social media pages.</p>
+        <p>15. Occasionally smoke and/or strobe lighting may be used as part of the show. If you believe any of your guests may be affected by these effects, please advise us accordingly.</p>
+    </div>
+    <div>
+        <p>16. I carry Public Liability Insurance and Portable Appliance Testing certificates for all electronic equipment. Proof of these documents can be seen on our website. Copies of these are also available upon request.</p>
+        <p>17. The client is liable for any damage caused to property by guests at the event, either accidental or deliberate (e.g. a drunk person stumbling into the equipment or mishandling microphones). In the event that this causes the entertainment to end there will be no refund and the client is liable for repairs or replacement costs.</p>
+        <p>PAYMENT OF A DEPOSIT IS AUTOMATIC ACCEPTANCE OF THESE TERMS AND CONDITIONS.</p>
+    </div>
+
+    <div style="text-align: center">
+        <p>{{ business.name }}</p>
+        <p>{{ business_address.address }}, {{ business_address.city }}, {{ business_address.postalcode}}<br>{{ business.phone}}&nbsp; -&nbsp; {{ business.email }}</p>
+    </div>
+</div>
+
+</body>
+</html>

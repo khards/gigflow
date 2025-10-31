@@ -1,0 +1,110 @@
+<h1>Booking confirmation.</h1>
+<div>
+    <table style="border-collapse: collapse; width: 100%; height: 83.3906px; border-width: 0px; border-style: none;" border="0">
+        <tbody>
+        <tr style="height: 83.3906px;">
+            <td style="width: 100%; text-align: center; height: 83.3906px; border-width: 0px;"><img src="https://elitebookingsystem.com/storage/photos/3/logo10750638.png" alt="Mobile DJ Image"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Email Body : BEGIN -->
+    <table style="border-collapse: collapse; width: 100%; border-width: 0px; border-style: none;" border="1">
+        <tbody>
+        <tr>
+            <td style="width: 100%; text-align: center; border-width: 0px;"><img src="https://elitebookingsystem.com/storage/photos/3/MobileDJsandDiscos.jpg" alt="Mobile disco image" align="center" border="0"></td>
+        </tr>
+        <tr>
+            <td style="width: 100%; border-width: 0px;">
+                <table style="border-collapse: collapse; width: 100%; border-width: 0px; border-style: none;" border="1">
+                    <tbody><!-- My details -->
+                    <tr style="height: 165px;">
+                        <td style="width: 100%; padding: 5px; border-width: 0px;">
+                            <p style="text-align: right;">{{ business.name }}</p>
+                            <p style="text-align: right;">{{ business_address.address }}<br>{{ business_address.city }}<br>{{ business_address.postalcode}}<br>{{ business.phone}}<br>{{ business.email }}</p>
+                        </td>
+                    </tr>
+                    <!-- Customer details -->
+                    <tr>
+                        <td style="width: 100%; padding: 5px; border-width: 0px;">
+                            <p>{{ billpayer.firstname }} {{ billpayer.lastname }}<br>{{ order.address.address }}, {{ order.address.city }}<br>{{ order.address.postalcode }}<br>{{ billpayer.phone }}<br>{{ billpayer.email }}</p>
+                            <p>{{ datetime }}</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table style="border-collapse: collapse; width: 100%; height: 786.625px; border-width: 0px; border-style: none;" border="1">
+                    <tbody>
+                    <tr style="height: 713.219px;">
+                        <td style="width: 100%; height: 713.219px; padding: 5px; border-width: 0px;">
+                            <h2>DJ Keith Hards - Booking confirmation</h2>
+                            <p>Dear {{ billpayer.firstname }},</p>
+                            <p>Your booking is confirmed for {{ order.formattedStart }} at {{ order.location }}&nbsp;</p>
+                            <p>I will arrive at least 1 hour prior to the start time to set up the equipment (unless otherwise arranged).</p>
+                            <p>Total Price for Services &pound;{{ order.totalPrice }}, a total of &pound;{{ order.deposit }} has been paid.</p>
+                            <p>Any outstanding amounts can be either paid by Bank Transfer or by PayPal.</p>
+                            <p>Online payments via Bank transfer or PayPal can be accepted up to one week prior to the day.</p>
+                            <ul>
+                                <li>Bank details:
+                                    <ul>
+                                        <li>Bank: {{ business.paymentMethodBank.data.name }}</li>
+                                        <li>Payee: {{ business.paymentMethodBank.data.payee }}</li>
+                                        <li>Account: {{ business.paymentMethodBank.data.account }}</li>
+                                        <li>Sort code: {{ business.paymentMethodBank.data.sortcode }}</li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ payment_link }}">Online payments can be made using this link</a>.</li>
+                            </ul>
+                            <p>Any outstanding balances must be paid prior to the start of the event.</p>
+                            <p>If further information is required, or you have any special requests please feel free to contact me.</p>
+                            <p>Please see attached booking contract.</p>
+                            <br>Best Regards<br>Keith Hards<br><a href="{{ business.url }}">{{ business.url }}</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table style="border-collapse: collapse; width: 100.08%; height: 1183.47px; border-width: 0px; border-style: none;" border="1">
+                    <tbody>
+                    <tr style="height: 73.4062px;">
+                        <td style="padding: 5px; width: 99.0219%; height: 73.4062px; border-width: 0px;">
+                            <h2>Keith Hards Terms and conditions</h2>
+                        </td>
+                    </tr>
+                    <tr style="height: 1110.06px;">
+                        <td style="padding: 5px; width: 99.0219%; height: 1110.06px; border-width: 0px;">
+                            <p>1. All bookings are not considered final until your deposit has been received. Payment of deposit is acceptance of these terms and conditions. All deposits are refundable up to 7 days prior to the day of booking.</p>
+                            <p>2. Enquiry form, email, or phone calls are a verbal or electronic agreement and shall include any other terms and conditions agreed upon between both parties. Any alterations must be agreed upon by both parties.</p>
+                            <p>3. N/A.</p>
+                            <p>4. All outstanding fees are payable prior to the start of the function (unless previously arranged). Cheques are not accepted. You may pay prior to the start date online or via bank transfer. It is not desirable to be handling large quantities of cash late in the evening.</p>
+                            <p>5. The entertainment will commence once full payment has been received.</p>
+                            <p>6. In the unlikely of Keith Hards having to cancel due to sickness or unforeseen circumstances, any fees paid to us by the client shall be refunded in full. (This will be the full extent of our liability) or in such circumstances, an alternative reputable entertainment company will be provided, although, for your peace of mind, this has never happened.</p>
+                            <p>7. In the unlikely event that the equipment should totally fail (excluding circumstances beyond control i.e. a power cut) a full refund will be given. Backup equipment is always carried to each event.</p>
+                            <p>8. Should Keith Hards be temporarily rejected upon arrival at the venue due to circumstances beyond our control, the full remaining fee must still be paid, regardless of the start time.</p>
+                            <p>9. Should there be a power failure occur during the performance, Keith Hards is not obliged to provide any refunds.</p>
+                            <p>10. Should additional entertainment time be required, overtime is charged at an hourly rate. This must be paid either in full, prior to the commencement of overtime, or on an hourly basis. If payment for overtime is not received, Keith Hards is not obliged to provide any further sound and lighting performance (unless previously arranged).</p>
+                            <p>11. Access to the function is normally required at least 1 hour prior to the start time to set up the sound and lighting, also 45 Minutes is required to pack up and vacate the venue.</p>
+                            <p>12. Keith Hards reserves the right to cancel services should it be discovered that the venue is unsuitable or dangerous. In these circumstances, no refund will be made. It is the client's responsibility to ensure the venue is equipped with at least 2 working standard sockets (unless otherwise arranged).</p>
+                            <p>13. If at any time, before or during the event, it is deemed that Keith Hards or property to be under threat, I reserve the right to terminate my services without further notice. In these circumstances, no refund will be made.</p>
+                            <p>14. Keith Hards may use photographic or recording equipment at your function for promotional purposes, to be used solely within his website and social media pages.</p>
+                            <p>15. Occasionally smoke and/or strobe lighting may be used as part of the show. If you believe any of your guests may be affected by these effects, please advise us accordingly.</p>
+                            <p>16. I carry Public Liability Insurance and Portable Appliance Testing certificates for all electronic equipment. Proof of these documents can be seen on our website. Copies of these are also available upon request.</p>
+                            <p>17. The client is liable for any damage caused to property by guests at the event, either accidental or deliberate (e.g. a drunk person stumbling into the equipment or mishandling microphones). In the event that this causes the entertainment to end there will be no refund and the client is liable for repairs or replacement costs.</p>
+                            <p>PAYMENT OF A DEPOSIT IS AUTOMATIC ACCEPTANCE OF THESE TERMS AND CONDITIONS.</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Email Footer : BEGIN -->
+    <table style="border-collapse: collapse; width: 100%; border-width: 0px; border-style: none;" border="1">
+        <tbody>
+        <tr>
+            <td style="width: 100%; padding: 5px; border-width: 0px;">
+                <p style="text-align: center;">{{ business.name }}</p>
+                <p style="text-align: center;">{{ business_address.address }}, {{ business_address.city }}, {{ business_address.postalcode}}<br>{{ business.phone}}&nbsp; -&nbsp; {{ business.email }}</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

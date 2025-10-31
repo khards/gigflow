@@ -1,0 +1,60 @@
+<h1>Payment Received.</h1>
+<div>
+    <table style="border-collapse: collapse; width: 100%; height: 83.3906px; border-width: 0px; border-style: none;" border="0">
+        <tbody>
+        <tr style="height: 83.3906px;">
+            <td style="width: 100%; text-align: center; height: 83.3906px; border-width: 0px;"><img src="https://elitebookingsystem.com/storage/photos/3/logo10750638.png" alt="Mobile DJ Image"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Email Body : BEGIN -->
+    <table style="border-collapse: collapse; width: 100%; border-width: 0px; border-style: none;" border="1">
+        <tbody>
+        <tr>
+            <td style="width: 100%; text-align: center; border-width: 0px;"><img src="https://elitebookingsystem.com/storage/photos/3/MobileDJsandDiscos.jpg" alt="Mobile disco image" align="center" border="0"></td>
+        </tr>
+        <tr>
+            <td style="width: 100%; border-width: 0px;">
+                <table style="border-collapse: collapse; width: 100%; border-width: 0px; border-style: none;" border="1">
+                    <tbody><!-- My details -->
+                    <tr style="height: 165px;">
+                        <td style="width: 100%; padding: 5px; border-width: 0px;">
+                            <p style="text-align: right;">{{ business.name }}</p>
+                            <p style="text-align: right;">{{ business_address.address }}<br>{{ business_address.city }}<br>{{ business_address.postalcode }}<br>{{ business.phone }}<br>{{ business.email }}</p>
+                        </td>
+                    </tr>
+                    <!-- Customer details -->
+                    <tr>
+                        <td style="width: 100%; padding: 5px; border-width: 0px;">
+                            <p>{{ billpayer.firstname }} {{ billpayer.lastname }}<br>{{ order.address.address }}, {{ order.address.city }}<br>{{ order.address.postalcode }}<br>{{ billpayer.phone }}<br>{{ billpayer.email }}</p>
+                            <p>{{ datetime }}</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table style="border-collapse: collapse; width: 100%; height: 786.625px; border-width: 0px; border-style: none;" border="1">
+                    <tbody>
+                    <tr style="height: 713.219px;">
+                        <td style="width: 100%; height: 713.219px; padding: 5px; border-width: 0px;">
+                            <h2>DJ Keith Hards - Payment Recieved</h2>
+                            <p>Thank you for your payment of {{ amount }}</p>
+                            <br>Best Regards<br>Keith Hards<br><a href="{{ business.url }}">{{ business.url }}</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Email Footer : BEGIN -->
+    <table style="border-collapse: collapse; width: 100%; border-width: 0px; border-style: none;" border="1">
+        <tbody>
+        <tr>
+            <td style="width: 100%; padding: 5px; border-width: 0px;">
+                <p style="text-align: center;">{{ business.name }}</p>
+                <p style="text-align: center;">{{ business_address.address }}, {{ business_address.city }}, {{ business_address.postalcode }}<br>{{ business.phone }}&nbsp; -&nbsp; {{ business.email }}</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
